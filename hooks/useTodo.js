@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { fetchTodos, addTodo, deleteTodo, editTodo } from '../services/todoService';
 
+//React hooks
+
+//React state
 const useTodo = () => {
   const [userInput, setUserInput] = useState('');
   const [list, setList] = useState([]);
@@ -9,6 +12,7 @@ const useTodo = () => {
     loadTodos();
   }, []);
 
+  //display data
   const loadTodos = async () => {
     const data = await fetchTodos();
     if (data.success) {
@@ -16,10 +20,12 @@ const useTodo = () => {
     }
   };
 
+  //update input data
   const updateInput = (value) => {
     setUserInput(value);
   };
 
+  //add data to list
   const addItem = async () => {
     if (userInput.trim() !== '') {
       const data = await addTodo(userInput);
@@ -30,6 +36,7 @@ const useTodo = () => {
     }
   };
 
+  //delete data
   const deleteItem = async (id) => {
     const data = await deleteTodo(id);
     if (data.success) {
@@ -37,6 +44,7 @@ const useTodo = () => {
     }
   };
 
+  //edit data
   const editItem = async (id, value) => {
     const editedTodo = prompt('Edit task name:', value);
     if (editedTodo !== null && editedTodo.trim() !== '') {

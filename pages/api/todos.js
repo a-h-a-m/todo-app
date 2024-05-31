@@ -1,10 +1,13 @@
 // pages/api/todos.js
 import Todo from '../../models/Todo';
 
+//API request response 
 export default async function handler(req, res) {
   const { method } = req;
 
+  //Which CRUD operation?
   switch (method) {
+    //Read
     case 'GET':
       try {
         const todos = await Todo.findAll();
@@ -13,6 +16,7 @@ export default async function handler(req, res) {
         res.status(400).json({ success: false });
       }
       break;
+    //Create
     case 'POST':
       try {
         const todo = await Todo.create(req.body);
@@ -21,6 +25,7 @@ export default async function handler(req, res) {
         res.status(400).json({ success: false });
       }
       break;
+    //Delete
     case 'DELETE':
       try {
         const { id } = req.body;
@@ -33,6 +38,7 @@ export default async function handler(req, res) {
         res.status(400).json({ success: false });
       }
       break;
+    //Update
     case 'PUT':
       try {
         const { id, value } = req.body;

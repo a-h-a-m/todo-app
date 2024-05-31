@@ -2,6 +2,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../lib/sequelize';
 
+//To-do model
 const Todo = sequelize.define('Todo', {
   value: {
     type: DataTypes.STRING,
