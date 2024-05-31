@@ -20,12 +20,12 @@ cd todo-app
 npm install
 ```
 
-4. Create '.env.local' file
-   Add new file in the 'todo-app' directory
-   Rename the file to '.env.local'
+4. Create `.env.local` file
+   Add new file in the `todo-app` directory
+   Rename the file to `.env.local`
 
 5. Add local MySQL database config (you can use xampp)
-   Copy this to '.env.local' file
+   Copy this to .env.local file
 
     ```bash
     MYSQL_HOST=localhost
@@ -34,7 +34,7 @@ npm install
     MYSQL_PASSWORD=
     MYSQL_PORT=3306
     ```
-   This is only example, you can change host name, database name, username, password, and port to match your database configurations
+   You can change host name, database name, username, password, and port to match your database configurations
 
 6. Run the development server (you need Node.js)
 
